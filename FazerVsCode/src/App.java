@@ -1,29 +1,44 @@
 import java.util.Scanner;
 
 public class App {
-        //Comentário
 
-    public static void funcao_teste (){
-        //Biblioteca para entrada de dados
-        Scanner ler = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        Operadores calc = new Operadores();
+        int opcao;
 
-        //variável local 
-        String v2;
-        int v1;
+        do {
+            System.out.println("\n=== CALCULADORA ===");
+            System.out.println("1 - Operadores Aritméticos");
+            System.out.println("2 - Operadores de Atribuição");
+            System.out.println("3 - Operadores Lógicos");
+            System.out.println("4 - Operadores de Comparação");
+            System.out.println("0 - Sair");
+            System.out.print("Escolha uma opção: ");
+            opcao = scanner.nextInt();
 
-        System.out.println("Comando de Saida de Dados");
-        
-        System.out.printf("Informe uma palavra: ");
-        v2 = ler.next();
+            switch (opcao) {
+                case 1:
+                    calc.operadoresAritmeticos();
+                    break;
+                case 2:
+                    calc.operadoresAtribuicao();
+                    break;
+                case 3:
+                    calc.operadoresLogicos();
+                    break;
+                case 4:
+                    calc.operadoresComparacao();
+                    break;
+                case 0:
+                    System.out.println("Encerrando o programa...");
+                    break;
+                default:
+                    System.out.println("Opção inválida! Tente novamente.");
+            }
 
-        System.out.printf("Informe um número: ");
-        v1 = ler.nextInt();
+        } while (opcao != 0);
 
-        System.out.printf(v2+" "+v1);
-    }
-    public static void main(String[] args) throws Exception {
-        funcao_teste();
-
-
+        scanner.close();
     }
 }
